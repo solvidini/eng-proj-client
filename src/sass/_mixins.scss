@@ -6,6 +6,10 @@
     }
 }
 
+@mixin shadow {
+    box-shadow: 0 0 .5rem $color-darker;
+}
+
 @mixin absCenter {
     position: absolute;
     top: 50%;

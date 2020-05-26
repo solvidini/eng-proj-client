@@ -1,39 +1,98 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Product from '../components/Product';
 import Spinner from '../components/UI/Spinner/Spinner';
 import Input from '../components/UI/SearchInput';
+import Paginator from '../components/UI/Paginator';
 
 const Products = (props) => {
   const [products, setProducts] = useState([]);
   const [searchValue, setSearchValue] = useState('');
+  const [totalProducts, setTotalProducts] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [perPage, setPerPage] = useState(5);
+  const [requestTime, setRequestTime] = useState();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetch('http://localhost:8100/products')
-      .then((response) => {
-        if (response.status !== 200) {
-          throw new Error('Failed to fetch products.');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        const modifiedProducts = data.products.map((product) => {
-          product.path = 'http://localhost:8101/' + product.path;
-          return product;
-        });
-        setProducts(modifiedProducts);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
-  }, []);
+  //   useEffect(() => {
+  //     fetch('http://localhost:8100/products')
+  //       .then((response) => {
+  //         if (response.status !== 200) {
+  //           throw new Error('Failed to fetch products.');
+  //         }
+  //         return response.json();
+  //       })
+  //       .then((data) => {
+  //         const modifiedProducts = data.products.map((product) => {
+  //           product.path = 'http://localhost:8101/' + product.path;
+  //           return product;
+  //         });
+  //         setProducts(modifiedProducts);
+  //         setLoading(false);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //         setLoading(false);
+  //       });
+  //   }, []);
 
-  const fetchFoundProducts = useCallback(() => {
-    setLoading(true);
-    fetch('http://localhost:8100/products', {
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(true);
+      const startTime = new Date().getTime();
+      fetch('http://localhost:8100/products', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ expression: searchValue }),
+      })
+        .then((response) => {
+          if (response.status !== 200) {
+            throw new Error('Failed to fetch products.');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const modifiedProducts = data.products.map((product) => {
+            product.path = 'http://localhost:8101/' + product.path;
+            return product;
+          });
+          setRequestTime(new Date().getTime() - startTime);
+          setTotalProducts(data.totalItems);
+          setCurrentPage(1);
+          setProducts(modifiedProducts);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+        });
+    }, 500);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [searchValue]);
+
+  const fetchProducts = (direction) => {
+    if (direction) {
+      setProducts([]);
+      setLoading(true);
+    }
+    let page = currentPage;
+    if (direction === 'next') {
+      page++;
+      setCurrentPage(page);
+    }
+    if (direction === 'previous') {
+      page--;
+      setCurrentPage(page);
+    }
+    if (Number.isInteger(direction)) {
+      page = direction;
+      setCurrentPage(page);
+    }
+    fetch('http://localhost:8100/products?page=' + page, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -51,6 +110,7 @@ const Products = (props) => {
           product.path = 'http://localhost:8101/' + product.path;
           return product;
         });
+        setTotalProducts(data.totalItems);
         setProducts(modifiedProducts);
         setLoading(false);
       })
@@ -58,16 +118,7 @@ const Products = (props) => {
         console.log(err);
         setLoading(false);
       });
-  }, [searchValue]);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      fetchFoundProducts();
-    }, 500);
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [searchValue, fetchFoundProducts]);
+  };
 
   const onChangeHandler = (event) => {
     event.preventDefault();
@@ -93,15 +144,32 @@ const Products = (props) => {
   } else {
     productList = (
       <div className="products__not-found">
-        Nie znaleziono produktu.
+        Nie znaleziono produktu w bazie.
       </div>
     );
   }
 
   return (
     <section className="section-products">
-      <Input value={searchValue} onChange={onChangeHandler} />
+      <Input
+        id="products"
+        label="Wyszukaj produkty oddzielając konkretne słowa spacją"
+        placeholder="Np. mera lampa desk / ikea biurko"
+        value={searchValue}
+        onChange={onChangeHandler}
+        totalProducts={totalProducts}
+        requestTime={requestTime}
+      />
       <div className="products">{productList}</div>
+      {products.length > 0 && (
+        <Paginator
+          onPrevious={fetchProducts.bind(this, 'previous')}
+          onNext={fetchProducts.bind(this, 'next')}
+          onPage={fetchProducts}
+          lastPage={Math.ceil(totalProducts / perPage)}
+          currentPage={currentPage}
+        />
+      )}
     </section>
   );
 };

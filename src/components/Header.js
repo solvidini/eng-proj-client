@@ -5,7 +5,11 @@ import NavigationItems from './Navigation/NavigationItems';
 
 const Header = (props) => {
   return (
-    <header className="header">
+    <header
+      className={
+        props.alteration ? 'header header--alteration' : 'header'
+      }
+    >
       <NavLink className="header__logo" to="/" exact={true}>
         SWPIU
       </NavLink>

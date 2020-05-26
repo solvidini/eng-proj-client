@@ -16,6 +16,7 @@ const Product = (props) => {
         </a>
       </div>
       <div className="products__item-content">
+        <span className="products__item-effect">{props.title}</span>
         <div className="products__item-group">
           <h2 className="products__item-category">{props.category}</h2>
           <h1 className="products__item-title">{props.title}</h1>
@@ -26,22 +27,20 @@ const Product = (props) => {
           </span>
         </div>
         <div className="products__item-group">
-          <div className="products__item-reference">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={props.reference}
-            >
-              {props.reference}
-            </a>
-          </div>
-        </div>
-        <div className="products__item-group">
           {props.description && (
             <div className="products__item-description">
               {props.description}
             </div>
           )}
+        </div>
+        <div className="products__item-reference">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={props.reference}
+          >
+            Link do producenta
+          </a>
         </div>
       </div>
     </div>

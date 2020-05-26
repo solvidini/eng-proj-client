@@ -12,19 +12,23 @@
         }
 
         &-link {
-            font-size: 2rem;
+            font-size: 1.7rem;
             font-weight: 400;
             padding: .5rem 0;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: $color-white;
             text-decoration: none;
-            border-bottom: 1.5px solid transparent;
 
             transition: all .2s ease;
 
+            &:hover,
+            &:active {
+                color: $color-primary;
+            }
+
             &--active {
-                border-bottom: 2px solid $color-white;
+                color: $color-primary;
             }
         }
     }

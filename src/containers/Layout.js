@@ -22,7 +22,7 @@ const Layout = (props) => {
   });
 
   useEffect(() => {
-    if (scrollY > 100) {
+    if (scrollY > 70) {
       setHeaderAlteration(true);
     } else {
       setHeaderAlteration(false);

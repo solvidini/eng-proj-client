@@ -1,0 +1,33 @@
+.paginator {
+    margin-bottom: 2rem;
+    &__controls {
+        display: flex;
+        justify-content: center;
+        font-size: 1.8rem;
+        color: $color-white;
+
+        &-item {
+            padding: 0.5rem 0;
+            margin: 0 1rem;
+            font: inherit;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: $color-white;
+            color: $color-white;
+            background-color: transparent;
+            border: none;
+            outline: none;
+
+            &:hover,
+            &:active {
+                color: $color-primary;
+            }
+
+            &--current {
+                cursor: initial;
+                color: $color-primary;
+                text-decoration: underline;
+            }
+        }
+    }
+}

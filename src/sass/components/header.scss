@@ -2,8 +2,11 @@
 @import '../mixins';
 
 .header {
+    z-index: 100;
+    position: fixed;
+    top: 0;
     width: 100%;
-    height: 10rem;
+    height: 12rem;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -13,11 +16,17 @@
     padding: 0 4rem;
     background-color: $color-dark;
     
-    border-bottom: 2px solid $color-white;
-    box-shadow: 0 0 1rem .3rem rgba($color-white, 0.5);
+    border-bottom: 2px solid $color-darker;
+    box-shadow: 0 .5rem .5rem $color-darker;
+
+    transition: all .2s ease;
 
     @include respond(phone) {
         padding: 0 2rem;
+    }
+
+    &--alteration {
+        height: 6rem;
     }
 
     &__logo {
