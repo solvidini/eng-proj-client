@@ -1,0 +1,9 @@
+@import "./variables";
+@import "./mixins";
+@import "./animations";
+
+@import './components/header.scss';
+@import './components/backdrop.scss';
+@import './components/navigation.scss';
+
+@import "./app.scss";
