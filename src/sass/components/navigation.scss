@@ -13,8 +13,10 @@
 
         &-link {
             font-size: 2rem;
+            font-weight: 600;
             padding: 3px 0;
             text-transform: uppercase;
+            letter-spacing: 2px;
             color: $color-white;
             text-decoration: none;
             border-bottom: 2px solid transparent;
@@ -22,7 +24,7 @@
             transition: all .2s ease;
 
             &--active {
-                border-bottom: 2px solid $color-white;
+                border-bottom: 2px solid $color-secondary;
             }
         }
     }
