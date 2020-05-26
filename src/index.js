@@ -5,14 +5,11 @@ import { BrowserRouter } from 'react-router-dom';
 import './sass/main.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import ScrollToTop from './hoc/ScrollToTop';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ScrollToTop>
         <App />
-      </ScrollToTop>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
