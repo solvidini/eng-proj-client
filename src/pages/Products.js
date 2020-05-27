@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Product from '../components/Product';
 import Spinner from '../components/UI/Spinner/Spinner';
-import Input from '../components/UI/SearchInput';
+import Input from '../components/SearchInput';
 import Paginator from '../components/UI/Paginator';
 
 const Products = (props) => {
@@ -157,7 +157,7 @@ const Products = (props) => {
         placeholder="Np. mera lampa desk / ikea biurko"
         value={searchValue}
         onChange={onChangeHandler}
-        totalProducts={totalProducts}
+        totalItems={totalProducts}
         requestTime={requestTime}
       />
       <div className="products">{productList}</div>

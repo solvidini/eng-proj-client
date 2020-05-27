@@ -1,0 +1,48 @@
+.side-drawer {
+    display: none;
+    position: fixed;
+    max-width: 60%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 500;
+    box-shadow: 0 .1rem .1rem rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, .8);
+
+    @supports(-webkit-backdrop-filter: blur(2px)) or (backdrop-filter: blur(2px)) {
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
+    }
+
+    padding: 32px 16;
+    box-sizing: border-box;
+    transition: all 0.5s cubic-bezier(.25, .72, .46, .99);
+
+    @include respond(tab-port) {
+        width: 40%;
+    }
+
+    @include respond(phone) {
+        width: 70%;
+    }
+
+    &--opened {
+        transform: translate(0);
+    }
+
+    &--closed {
+        transform: translateX(-101%);
+    }
+
+    @include respond(tab-port) {
+        display: block;
+    }
+
+    &__nav {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}

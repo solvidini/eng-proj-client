@@ -5,9 +5,15 @@ import NavigationItem from './NavigationItem.js';
 const NavigationItems = (props) => {
   return (
     <ul className="navigation">
-      <NavigationItem link="/">Home</NavigationItem>
-      <NavigationItem link="/products">Produkty</NavigationItem>
-      <NavigationItem link="/services">Usługi</NavigationItem>
+      <NavigationItem link="/" clicked={props.clicked}>
+        Home
+      </NavigationItem>
+      <NavigationItem link="/products" clicked={props.clicked}>
+        Produkty
+      </NavigationItem>
+      <NavigationItem link="/services" clicked={props.clicked}>
+        Usługi
+      </NavigationItem>
     </ul>
   );
 };

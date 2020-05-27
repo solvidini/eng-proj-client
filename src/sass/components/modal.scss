@@ -1,0 +1,79 @@
+@import '../variables';
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 2rem;
+    background-color: $color-background;
+    box-shadow: .5rem .5rem .4rem rgba($color-dark, 0.9);
+    color: $color-white;
+
+    border-radius: 3px;
+    text-align: right;
+
+    min-width: 45rem;
+
+    @include respond(phone) {
+        width: 90%
+    }
+
+    &__title {
+        color: $color-white;
+        text-shadow: 0 0 .3rem $color-white;
+        text-align: center;
+        font-size: 2.4rem;
+        text-transform: uppercase;
+
+        &--error {
+            color: $color-failure;
+            text-shadow: 0 0 .3rem $color-failure;
+        }
+    }
+
+    &__content {
+        text-align: center;
+        font-size: 1.8rem;
+        margin: 2rem 0;
+    }
+
+    &__submit {
+        cursor: pointer;
+        width: 40%;
+        background-color: $color-primary;
+        outline: none;
+
+        border: 1px solid transparent;
+        border-radius: 3px;
+        padding: 1rem;
+
+        color: $color-white;
+        font-size: 1.6rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        transition: all .2s ease;
+
+        @include respond(phone) {
+            width: 100%;
+            margin: 0;
+        }
+
+        &:focus {
+            border-color: $color-primary;
+        }
+
+        &:hover {
+            box-shadow: 0 0 1rem $color-primary;
+        }
+
+
+        &:active {
+            box-shadow: inset 0 0 .5rem $color-dark;
+        }
+    }
+}

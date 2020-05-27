@@ -1,0 +1,58 @@
+.drawer-toggle {
+    &__button {
+        display: none;
+        position: relative;
+        height: 100%;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+
+        @include respond(tab-port) {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__icon {
+        position: relative;
+        z-index: 200;
+
+        transition: all .2s ease 50ms;
+
+        &,
+        &::before,
+        &::after {
+            width: 5rem;
+            height: 2px;
+            background-color: $color-white;
+            display: block;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+        }
+
+        &::before {
+            top: -1rem;
+            transition: all .2s ease;
+        }
+
+        &::after {
+            top: 1rem;
+            transition: all .2s ease 50ms;
+        }
+
+        &--active {
+            background-color: transparent;
+
+            &::before {
+                background-color: transparent;
+            }
+
+            &::after {
+                background-color: transparent;
+            }
+        }
+    }
+}

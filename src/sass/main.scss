@@ -4,11 +4,16 @@
 
 @import './components/header.scss';
 @import './components/backdrop.scss';
+@import './components/modal.scss';
 @import './components/navigation.scss';
 @import './components/products.scss';
+@import './components/services.scss';
 @import './components/searchInput.scss';
 @import './components/paginator.scss';
+@import './components/sideDrawer.scss';
+@import './components/drawerToggle.scss';
 
 @import './pages/products.scss';
+@import './pages/services.scss';
 
 @import "./app.scss";
