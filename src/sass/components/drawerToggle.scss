@@ -6,7 +6,7 @@
         cursor: pointer;
         -webkit-tap-highlight-color: transparent;
 
-        @include respond(tab-port) {
+        @include respond(phone) {
             display: flex;
             align-items: center;
         }

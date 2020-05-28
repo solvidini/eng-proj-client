@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Header from '../components/Header';
 import SideDrawer from '../components/Navigation/SideDrawer';
-// import Footer from '../components/Content/Footer';
+import Footer from '../components/Footer';
 
 const Layout = (props) => {
   const [sideDrawerIsVisible, setSideDrawerIsVisible] = useState(false);
@@ -49,7 +49,7 @@ const Layout = (props) => {
         onClose={sideDrawerClosedHandler}
       />
       {props.children}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

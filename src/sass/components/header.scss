@@ -44,7 +44,7 @@
     }
 
     &--transparent {
-        @include respond(tab-port) {
+        @include respond(phone) {
             background-color: transparent;
             box-shadow: none;
             backdrop-filter: none;
@@ -54,7 +54,7 @@
     &__nav {
         display: initial;
 
-        @include respond(tab-port) {
+        @include respond(phone) {
             display: none;
         }
     }

@@ -131,7 +131,7 @@ const Services = (props) => {
     <section className="section-services">
       <Input
         id="services"
-        label="Wyszukaj usługi oddzielając konkretne słowa spacją"
+        label="Wyszukaj usługi oddzielając konkretne&nbsp;słowa&nbsp;spacją"
         placeholder="Np. meble / projekt"
         value={searchValue}
         onChange={onChangeHandler}

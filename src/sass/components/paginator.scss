@@ -1,5 +1,6 @@
 .paginator {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
+
     &__controls {
         display: flex;
         justify-content: center;
@@ -26,7 +27,6 @@
             &--current {
                 cursor: initial;
                 color: $color-primary;
-                text-decoration: underline;
             }
         }
     }

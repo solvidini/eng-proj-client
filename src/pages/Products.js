@@ -153,7 +153,7 @@ const Products = (props) => {
     <section className="section-products">
       <Input
         id="products"
-        label="Wyszukaj produkty oddzielając konkretne słowa spacją"
+        label="Wyszukaj produkty oddzielając konkretne&nbsp;słowa&nbsp;spacją"
         placeholder="Np. mera lampa desk / ikea biurko"
         value={searchValue}
         onChange={onChangeHandler}

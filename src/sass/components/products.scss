@@ -23,6 +23,9 @@
         overflow: hidden;
         box-shadow: .5rem .5rem .5rem $color-darker;
 
+        @include respond(phone) {
+            border-radius: 0;
+        }
 
         &-image {
             flex: 30% 0 0;
@@ -41,6 +44,10 @@
             /* Internet Explorer/Edge */
             user-select: none;
             /* Non-prefixed version, currently */
+
+            @include respond(phone) {
+                flex: 45% 0 0;
+            }
 
             & img {
                 height: 100%;
