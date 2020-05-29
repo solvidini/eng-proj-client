@@ -1,6 +1,7 @@
 @import '../variables';
 
 .modal {
+    font-family: sans-serif;
     position: fixed;
     z-index: 1000;
     top: 50%;
@@ -43,14 +44,14 @@
     &__submit {
         cursor: pointer;
         width: 40%;
-        background-color: $color-primary;
+        background-color: transparent;
         outline: none;
 
-        border: 1px solid transparent;
+        border: 2px solid $color-primary;
         border-radius: 3px;
         padding: 1rem;
 
-        color: $color-white;
+        color: $color-primary;
         font-size: 1.6rem;
         font-weight: 600;
         text-transform: uppercase;
@@ -70,7 +71,6 @@
         &:hover {
             box-shadow: 0 0 1rem $color-primary;
         }
-
 
         &:active {
             box-shadow: inset 0 0 .5rem $color-dark;

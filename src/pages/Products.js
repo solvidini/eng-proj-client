@@ -4,6 +4,7 @@ import Product from '../components/Product';
 import Spinner from '../components/UI/Spinner/Spinner';
 import Input from '../components/SearchInput';
 import Paginator from '../components/UI/Paginator';
+import ErrorHandler from '../components/ErrorHandler';
 
 const Products = (props) => {
   const [products, setProducts] = useState([]);
@@ -13,28 +14,7 @@ const Products = (props) => {
   const [perPage, setPerPage] = useState(5);
   const [requestTime, setRequestTime] = useState();
   const [loading, setLoading] = useState(true);
-
-  //   useEffect(() => {
-  //     fetch('http://localhost:8100/products')
-  //       .then((response) => {
-  //         if (response.status !== 200) {
-  //           throw new Error('Failed to fetch products.');
-  //         }
-  //         return response.json();
-  //       })
-  //       .then((data) => {
-  //         const modifiedProducts = data.products.map((product) => {
-  //           product.path = 'http://localhost:8101/' + product.path;
-  //           return product;
-  //         });
-  //         setProducts(modifiedProducts);
-  //         setLoading(false);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //         setLoading(false);
-  //       });
-  //   }, []);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -49,7 +29,7 @@ const Products = (props) => {
       })
         .then((response) => {
           if (response.status !== 200) {
-            throw new Error('Failed to fetch products.');
+            throw new Error('Nie udało się pobrać produktów.');
           }
           return response.json();
         })
@@ -65,7 +45,10 @@ const Products = (props) => {
           setLoading(false);
         })
         .catch((err) => {
-          console.log(err);
+          if (err.name === 'TypeError') {
+            err.message = "Nie udało się pobrać produktów."
+          }
+          setError(err);
           setLoading(false);
         });
     }, 500);
@@ -101,7 +84,7 @@ const Products = (props) => {
     })
       .then((response) => {
         if (response.status !== 200) {
-          throw new Error('Failed to fetch products.');
+          throw new Error('Nie udało się pobrać produktów.');
         }
         return response.json();
       })
@@ -113,9 +96,13 @@ const Products = (props) => {
         setTotalProducts(data.totalItems);
         setProducts(modifiedProducts);
         setLoading(false);
+        window.scrollTo(0, 0);
       })
       .catch((err) => {
-        console.log(err);
+        if (err.name === 'TypeError') {
+          err.message = "Nie udało się pobrać produktów."
+        }
+        setError(err);
         setLoading(false);
       });
   };
@@ -123,6 +110,11 @@ const Products = (props) => {
   const onChangeHandler = (event) => {
     event.preventDefault();
     setSearchValue(event.target.value);
+  };
+
+  const errorHandler = (event) => {
+    event.preventDefault();
+    setError(false);
   };
 
   let productList;
@@ -151,6 +143,7 @@ const Products = (props) => {
 
   return (
     <section className="section-products">
+      <ErrorHandler error={error} onHandle={errorHandler} />
       <Input
         id="products"
         label="Wyszukaj produkty oddzielając konkretne&nbsp;słowa&nbsp;spacją"

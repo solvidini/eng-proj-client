@@ -4,6 +4,7 @@ import Service from '../components/Service';
 import Spinner from '../components/UI/Spinner/Spinner';
 import Input from '../components/SearchInput';
 import Paginator from '../components/UI/Paginator';
+import ErrorHandler from '../components/ErrorHandler';
 
 const Services = (props) => {
   const [services, setServices] = useState([]);
@@ -13,6 +14,7 @@ const Services = (props) => {
   const [perPage, setPerPage] = useState(5);
   const [requestTime, setRequestTime] = useState();
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -27,7 +29,7 @@ const Services = (props) => {
       })
         .then((response) => {
           if (response.status !== 200) {
-            throw new Error('Failed to fetch services.');
+            throw new Error('Nie udało się pobrać usług.');
           }
           return response.json();
         })
@@ -43,7 +45,10 @@ const Services = (props) => {
           setLoading(false);
         })
         .catch((err) => {
-          console.log(err);
+          if (err.name === 'TypeError') {
+            err.message = 'Nie udało się pobrać usług.';
+          }
+          setError(err);
           setLoading(false);
         });
     }, 500);
@@ -79,7 +84,7 @@ const Services = (props) => {
     })
       .then((response) => {
         if (response.status !== 200) {
-          throw new Error('Failed to fetch services.');
+          throw new Error('Nie udało się pobrać usług.');
         }
         return response.json();
       })
@@ -91,9 +96,13 @@ const Services = (props) => {
         setTotalServices(data.totalItems);
         setServices(modifiedServices);
         setLoading(false);
+        window.scrollTo(0, 0);
       })
       .catch((err) => {
-        console.log(err);
+        if (err.name === 'TypeError') {
+          err.message = "Nie udało się pobrać usług."
+        }
+        setError(err);
         setLoading(false);
       });
   };
@@ -101,6 +110,11 @@ const Services = (props) => {
   const onChangeHandler = (event) => {
     event.preventDefault();
     setSearchValue(event.target.value);
+  };
+
+  const errorHandler = (event) => {
+    event.preventDefault();
+    setError(false);
   };
 
   let serviceList;
@@ -129,6 +143,7 @@ const Services = (props) => {
 
   return (
     <section className="section-services">
+      <ErrorHandler error={error} onHandle={errorHandler} />
       <Input
         id="services"
         label="Wyszukaj usługi oddzielając konkretne&nbsp;słowa&nbsp;spacją"

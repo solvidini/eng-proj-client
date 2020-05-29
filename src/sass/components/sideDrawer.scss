@@ -7,7 +7,7 @@
     top: 0;
     z-index: 500;
     box-shadow: 0 .1rem .1rem rgba(0, 0, 0, 0.5);
-    background-color: rgba(rgb(10, 10, 10), 0.9);
+    background-color: rgba($color-black, 0.9);
 
     @supports(-webkit-backdrop-filter: blur(2px)) or (backdrop-filter: blur(2px)) {
         -webkit-backdrop-filter: blur(2px);
