@@ -9,10 +9,8 @@ const Paginator = (props) => {
     }
   }
   for (let i = props.currentPage + 1; i < props.currentPage + 4; i++) {
-    if (i > 0) {
-      if (i < props.lastPage) {
-        nextPages.push(i);
-      }
+    if (i > 0 && i <= props.lastPage) {
+      nextPages.push(i);
     }
   }
   return (

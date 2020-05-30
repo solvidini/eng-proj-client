@@ -92,7 +92,6 @@ const Footer = (props) => {
           </div>
         </div>
       </div>
-      Strona stworzona na rzecz pracy inz
       <div className="footer__copyright">
         <span>
           Samuel Kędziora &copy; <b>{currentDate}</b>
