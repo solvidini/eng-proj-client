@@ -20,6 +20,7 @@ const Paginator = (props) => {
           <button
             className="paginator__controls-item"
             onClick={props.onPage.bind(this, 1)}
+            title="Strona pierwsza"
           >
             {'<<'}
           </button>
@@ -28,6 +29,7 @@ const Paginator = (props) => {
           <button
             className="paginator__controls-item"
             onClick={props.onPrevious}
+            title="Strona poprzednia"
           >
             {'<'}
           </button>
@@ -57,6 +59,7 @@ const Paginator = (props) => {
           <button
             className="paginator__controls-item"
             onClick={props.onNext}
+            title="Strona następna"
           >
             {'>'}
           </button>
@@ -65,6 +68,7 @@ const Paginator = (props) => {
           <button
             className="paginator__controls-item"
             onClick={props.onPage.bind(this, props.lastPage)}
+            title="Strona ostatnia"
           >
             {'>>'}
           </button>
