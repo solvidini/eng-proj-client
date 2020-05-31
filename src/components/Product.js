@@ -18,21 +18,28 @@ const Product = (props) => {
       <div className="products__item-content">
         <span className="products__item-effect">{props.title}</span>
         <div className="products__item-group">
-          <h2 className="products__item-category">{props.category}</h2>
           <h1 className="products__item-title">{props.title}</h1>
+        </div>
+        <div className="products__item-group">
+          <span className="products__item-manufacturer">
+            Kategoria: <b>{props.category}</b>
+          </span>
         </div>
         <div className="products__item-group">
           <span className="products__item-manufacturer">
             Producent: <b>{props.company}</b>
           </span>
         </div>
-        <div className="products__item-group">
-          {props.description && (
+        {props.description && (
+          <div className="products__item-group">
             <div className="products__item-description">
-              {props.description}
+              O produkcie: <b>{props.description}</b>
             </div>
-          )}
-        </div>
+          </div>
+        )}
+        {props.price && (
+          <div className="products__item-price">{props.price}</div>
+        )}
         <div className="products__item-reference">
           <a
             target="_blank"

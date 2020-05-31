@@ -46,7 +46,7 @@ const Products = (props) => {
         })
         .catch((err) => {
           if (err.name === 'TypeError') {
-            err.message = "Nie udało się pobrać produktów."
+            err.message = 'Nie udało się pobrać produktów.';
           }
           setError(err);
           setLoading(false);
@@ -100,7 +100,7 @@ const Products = (props) => {
       })
       .catch((err) => {
         if (err.name === 'TypeError') {
-          err.message = "Nie udało się pobrać produktów."
+          err.message = 'Nie udało się pobrać produktów.';
         }
         setError(err);
         setLoading(false);
@@ -130,6 +130,7 @@ const Products = (props) => {
         company={product.company}
         reference={product.reference}
         description={product.description}
+        price={product.price}
         src={product.path}
       />
     ));
@@ -146,8 +147,8 @@ const Products = (props) => {
       <ErrorHandler error={error} onHandle={errorHandler} />
       <Input
         id="products"
-        label="Wyszukaj produkty oddzielając konkretne&nbsp;słowa&nbsp;spacją"
-        placeholder="Np. mera lampa desk / ikea biurko"
+        label="Wyszukaj produkty oddzielając słowa&nbsp;spacją."
+        placeholder="Np. mera lampa desk / ikea biurko / krzesło*"
         value={searchValue}
         onChange={onChangeHandler}
         totalItems={totalProducts}
