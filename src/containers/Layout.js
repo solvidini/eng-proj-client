@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 import Header from '../components/Header';
 import SideDrawer from '../components/Navigation/SideDrawer';
@@ -8,6 +8,9 @@ const Layout = (props) => {
   const [sideDrawerIsVisible, setSideDrawerIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [headerAlteration, setHeaderAlteration] = useState(false);
+  const [minHeight, setMinHeight] = useState({});
+  const headerRef = useRef(null);
+  const footerRef = useRef(null);
 
   const yOffset = () => {
     setScrollY(window.pageYOffset);
@@ -15,9 +18,11 @@ const Layout = (props) => {
 
   useEffect(() => {
     window.addEventListener('scroll', yOffset);
+    window.addEventListener('resize', adjustFooter);
 
     return () => {
       window.removeEventListener('scroll', yOffset);
+      window.removeEventListener('resize', adjustFooter);
     };
   });
 
@@ -28,6 +33,19 @@ const Layout = (props) => {
       setHeaderAlteration(false);
     }
   }, [setHeaderAlteration, scrollY]);
+
+  const adjustFooter = useCallback(() => {
+    const footerHeight = footerRef.current.offsetHeight;
+    const headerHeight = headerRef.current.offsetHeight;
+    setMinHeight({
+      minHeight:
+        'calc(100vh - ' + (footerHeight + headerHeight) + 'px)',
+    });
+  }, [setMinHeight]);
+
+  useEffect(() => {
+    adjustFooter();
+  }, [adjustFooter]);
 
   const sideDrawerToggleHandler = () => {
     setSideDrawerIsVisible(!sideDrawerIsVisible);
@@ -43,13 +61,14 @@ const Layout = (props) => {
         sideDrawerToggle={sideDrawerToggleHandler}
         sideDrawerIsVisible={sideDrawerIsVisible}
         alteration={headerAlteration}
+        headerRef={headerRef}
       />
       <SideDrawer
         opened={sideDrawerIsVisible}
         onClose={sideDrawerClosedHandler}
       />
-      {props.children}
-      <Footer />
+      <div style={minHeight}>{props.children}</div>
+      <Footer footerRef={footerRef} />
     </>
   );
 };

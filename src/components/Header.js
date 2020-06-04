@@ -13,7 +13,7 @@ const Header = (props) => {
     headerClasses.push('header--transparent');
   }
   return (
-    <header className={headerClasses.join(' ')}>
+    <header className={headerClasses.join(' ')} ref={props.headerRef}>
       <NavLink className="header__logo" to="/" exact={true}>
         SWPIU
       </NavLink>

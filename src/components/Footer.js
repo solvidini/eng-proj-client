@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Footer = (props) => {
   const currentDate = new Date().getFullYear();
   return (
-    <footer className="footer">
+    <footer className="footer" ref={props.footerRef}>
       <div className="footer__top">
         <div className="footer__top-item">
           <h4>Kontakt z twórcą systemu:</h4>
