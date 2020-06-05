@@ -12,12 +12,16 @@ const Products = (props) => {
   const [totalProducts, setTotalProducts] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(5);
+  const [optionsValue, setOptionsValue] = useState(5);
   const [requestTime, setRequestTime] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
+      if (perPage < 1 || perPage > 30) {
+        return;
+      }
       setLoading(true);
       const startTime = new Date().getTime();
       fetch('http://localhost:8100/products', {
@@ -25,7 +29,10 @@ const Products = (props) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ expression: searchValue }),
+        body: JSON.stringify({
+          expression: searchValue,
+          perPage: perPage,
+        }),
       })
         .then((response) => {
           if (response.status !== 200) {
@@ -55,7 +62,7 @@ const Products = (props) => {
     return () => {
       clearTimeout(timeout);
     };
-  }, [searchValue]);
+  }, [searchValue, perPage]);
 
   const fetchProducts = (direction) => {
     if (direction) {
@@ -80,7 +87,10 @@ const Products = (props) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ expression: searchValue }),
+      body: JSON.stringify({
+        expression: searchValue,
+        perPage: perPage,
+      }),
     })
       .then((response) => {
         if (response.status !== 200) {
@@ -110,6 +120,20 @@ const Products = (props) => {
   const onChangeHandler = (event) => {
     event.preventDefault();
     setSearchValue(event.target.value);
+  };
+
+  const onOptionsChangeHandler = (event) => {
+    event.preventDefault();
+    let value = event.target.value;
+    value = String(value).replace(/[^0-9]/g, '');
+    if (value > 30) {
+      value = 30;
+    }
+
+    setOptionsValue(value);
+    if (value > 0 && value <= 30) {
+      setPerPage(value);
+    }
   };
 
   const errorHandler = (event) => {
@@ -153,6 +177,10 @@ const Products = (props) => {
         onChange={onChangeHandler}
         totalItems={totalProducts}
         requestTime={requestTime}
+        page={currentPage}
+        allPages={Math.ceil(totalProducts / perPage)}
+        optionsValue={optionsValue}
+        onOptionsChange={onOptionsChangeHandler}
       />
       <div className="products">{productList}</div>
       {products.length > 0 && (

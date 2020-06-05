@@ -1,5 +1,7 @@
 import React from 'react';
 
+import noImage from '../assets/images/no-image.png';
+
 const Service = (props) => {
   return (
     <div className="services__item">
@@ -10,36 +12,32 @@ const Service = (props) => {
           href={props.reference}
         >
           <img
-            src={props.src}
+            src={props.src ? props.src : noImage}
             alt={props.category + ' ' + props.title}
           />
         </a>
       </div>
       <div className="services__item-content">
-        <span className="services__item-effect">{props.title}</span>
+        <span className="services__item-effect">{props.company}</span>
         <div className="services__item-group">
-          <h2 className="services__item-category">{props.category}</h2>
           <h1 className="services__item-title">{props.title}</h1>
         </div>
         <div className="services__item-group">
-          <span className="services__item-manufacturer">
-            {props.company}
-          </span>
+          <h1 className="services__item-category">{props.category}</h1>
         </div>
         <div className="services__item-group">
-          {props.description && (
-            <div className="services__item-description">
-              {props.description}
-            </div>
-          )}
+          <div className="services__item-description">
+            {props.description}
+          </div>
         </div>
+        <div className="services__item-company">{props.company}</div>
         <div className="services__item-reference">
           <a
             target="_blank"
             rel="noopener noreferrer"
             href={props.reference}
           >
-            Link do producenta
+            Link do usługi
           </a>
         </div>
       </div>

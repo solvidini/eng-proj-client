@@ -29,42 +29,95 @@
     }
 }
 
-.search {
+.inputs {
+    position: relative;
+    display: flex;
     max-width: 85rem;
-    margin: 0 auto;
     width: 100%;
-    outline: none;
+    margin: 0 auto;
 
-    padding: 1rem 2rem 1rem 5rem;
-    background-color: $color-white;
+    &__search {
+        width: 85%;
+        flex: 0 0 85%;
+        outline: none;
 
-    font-size: 1.6rem;
-    // text-align: center;
+        padding: 1rem 2rem 1rem 5rem;
+        background-color: $color-white;
 
-    border: 2px solid $color-white;
-    border-radius: 2rem;
+        font-size: 1.6rem;
+        // text-align: center;
 
-    &:hover {
-        box-shadow: 0 0 .5rem $color-white;
+        border: 2px solid $color-white;
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 2rem;
+        border-right: 1px solid $color-accent;
+
+        @include respond(tab-port) {
+            width: 80%;
+            flex: 0 0 80%;
+        }
+
+        @include respond(phone) {
+            width: 75%;
+            flex: 0 0 75%;
+        }
+
+        &:hover {
+            box-shadow: 0 0 .5rem $color-white;
+        }
+
+        &:focus {
+            z-index: 1;
+            border: 2px solid $color-primary;
+            box-shadow: 0 0 .5rem $color-primary;
+        }
+
+        &-icon {
+            z-index: 2;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 2rem;
+
+            font-size: 2rem;
+            color: $color-accent;
+        }
     }
 
-    &:focus {
-        border: 2px solid $color-primary;
-        box-shadow: 0 0 .5rem $color-primary;
-    }
+    &__options {
+        width: 15%;
+        flex: 0 0 15%;
+        outline: none;
 
-    &-box {
-        position: relative;
-    }
+        padding: 1rem 2rem;
+        background-color: $color-white;
 
-    &-icon {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        margin-left: 2rem;
+        font-size: 1.6rem;
 
-        font-size: 2rem;
-        color: $color-accent;
+        border: 2px solid $color-white;
+        border-top-right-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+        border-left: 1px solid $color-accent;
+
+        @include respond(tab-port) {
+            width: 20%;
+            flex: 0 0 20%;
+        }
+
+        @include respond(phone) {
+            width: 25%;
+            flex: 0 0 25%;
+        }
+
+        &:hover {
+            box-shadow: 0 0 .5rem $color-white;
+        }
+
+        &:focus {
+            z-index: 1;
+            border: 2px solid $color-primary;
+            box-shadow: 0 0 .5rem $color-primary;
+        }
     }
 }

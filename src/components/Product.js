@@ -1,5 +1,7 @@
 import React from 'react';
 
+import noImage from '../assets/images/no-image.png';
+
 const Product = (props) => {
   return (
     <div className="products__item">
@@ -10,7 +12,7 @@ const Product = (props) => {
           href={props.reference}
         >
           <img
-            src={props.src}
+            src={props.src ? props.src : noImage}
             alt={props.category + ' ' + props.title}
           />
         </a>
@@ -21,7 +23,7 @@ const Product = (props) => {
           <h1 className="products__item-title">{props.title}</h1>
         </div>
         <div className="products__item-group">
-          <span className="products__item-manufacturer">
+          <span className="products__item-category">
             Kategoria: <b>{props.category}</b>
           </span>
         </div>
@@ -33,7 +35,7 @@ const Product = (props) => {
         {props.description && (
           <div className="products__item-group">
             <div className="products__item-description">
-              O produkcie: <b>{props.description}</b>
+              {props.description}
             </div>
           </div>
         )}

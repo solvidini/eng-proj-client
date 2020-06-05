@@ -2,7 +2,7 @@
 @import '../mixins';
 
 .products {
-    margin: 3rem 0;
+    margin: 0 0 3rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +28,7 @@
         }
 
         &-image {
-            flex: 30% 0 0;
+            flex: 0 1 30%;
             z-index: 1;
             background-color: $color-darker;
 
@@ -46,7 +46,7 @@
             /* Non-prefixed version, currently */
 
             @include respond(phone) {
-                flex: 45% 0 0;
+                flex: 0 0 45%;
             }
 
             & img {
@@ -122,11 +122,7 @@
         }
 
         &-description {
-            color: $color-grey;
-
-            & b {
-                color: $color-white;
-            }
+            color: $color-white;
         }
 
         &-price {

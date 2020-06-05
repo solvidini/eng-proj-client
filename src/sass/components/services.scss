@@ -2,7 +2,7 @@
 @import '../mixins';
 
 .services {
-    margin: 3rem 0;
+    margin: 0 0 3rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,7 +14,7 @@
     &__item {
         position: relative;
         width: 100%;
-        height: 25rem;
+        min-height: 28rem;
         margin: 1rem;
         display: flex;
         flex-direction: row;
@@ -27,10 +27,19 @@
             border-radius: 0;
         }
 
+        @include respond(phone) {
+            height: auto;
+            flex-direction: column;
+        }
+
         &-image {
-            flex: 30% 0 0;
+            display: flex;
+            flex: 0 0 30%;
             z-index: 1;
             background-color: $color-darker;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
 
             -webkit-touch-callout: none;
             /* iOS Safari */
@@ -46,13 +55,25 @@
             /* Non-prefixed version, currently */
 
             @include respond(phone) {
-                flex: 45% 0 0;
+                flex: 1;
             }
 
             & img {
-                height: 100%;
                 width: 100%;
+                height: auto;
+                max-height: 30rem;
                 object-fit: contain;
+
+                // @include respond(tab-land) {
+                //     width: 100%;
+                //     height: auto;
+                // }
+
+                @include respond(phone) {
+                    width: 70%;
+                    max-height: none;
+                    height: auto;
+                }
             }
         }
 
@@ -62,6 +83,15 @@
             display: flex;
             flex-direction: column;
             padding: 2rem;
+        }
+
+        &-description {
+            text-align: justify;
+            margin-bottom: 3rem;
+
+            @include respond(phone) {
+                margin-bottom: 3rem;
+            }
         }
 
         &-effect {
@@ -97,20 +127,35 @@
             }
         }
 
-        &-category {
-            font-size: 2.1rem;
-            margin-right: 1rem;
-        }
-
         &-title {
             font-size: 2.3rem;
+
+            @include respond(phone) {
+                font-size: 1.9rem;
+            }
         }
 
-        &-manufacturer {
-            font-size: 1.7rem;
+        &-category {
+            font-size: 2rem;
+
+            @include respond(phone) {
+                font-size: 1.7rem;
+            }
+        }
+
+        &-company {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2.3rem;
+
+            @include respond(phone) {
+                font-size: 1.9rem;
+            }
         }
 
         &-reference {
+            z-index: 1;
             position: absolute;
             bottom: 2rem;
             left: 2rem;

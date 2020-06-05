@@ -12,12 +12,16 @@ const Services = (props) => {
   const [totalServices, setTotalServices] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(5);
+  const [optionsValue, setOptionsValue] = useState(5);
   const [requestTime, setRequestTime] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
+      if (perPage < 1 || perPage > 30) {
+        return;
+      }
       setLoading(true);
       const startTime = new Date().getTime();
       fetch('http://localhost:8100/services', {
@@ -25,7 +29,10 @@ const Services = (props) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ expression: searchValue }),
+        body: JSON.stringify({
+          expression: searchValue,
+          perPage: perPage,
+        }),
       })
         .then((response) => {
           if (response.status !== 200) {
@@ -55,7 +62,7 @@ const Services = (props) => {
     return () => {
       clearTimeout(timeout);
     };
-  }, [searchValue]);
+  }, [searchValue, perPage]);
 
   const fetchServices = (direction) => {
     if (direction) {
@@ -80,7 +87,7 @@ const Services = (props) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ expression: searchValue }),
+      body: JSON.stringify({ expression: searchValue, perPage: perPage }),
     })
       .then((response) => {
         if (response.status !== 200) {
@@ -100,7 +107,7 @@ const Services = (props) => {
       })
       .catch((err) => {
         if (err.name === 'TypeError') {
-          err.message = "Nie udało się pobrać usług."
+          err.message = 'Nie udało się pobrać usług.';
         }
         setError(err);
         setLoading(false);
@@ -110,6 +117,20 @@ const Services = (props) => {
   const onChangeHandler = (event) => {
     event.preventDefault();
     setSearchValue(event.target.value);
+  };
+
+  const onOptionsChangeHandler = (event) => {
+    event.preventDefault();
+    let value = event.target.value;
+    value = String(value).replace(/[^0-9]/g, '');
+    if (value > 30) {
+      value = 30;
+    }
+
+    setOptionsValue(value);
+    if (value > 0 && value <= 30) {
+      setPerPage(value);
+    }
   };
 
   const errorHandler = (event) => {
@@ -146,12 +167,16 @@ const Services = (props) => {
       <ErrorHandler error={error} onHandle={errorHandler} />
       <Input
         id="services"
-        label="Wyszukaj usługi oddzielając konkretne&nbsp;słowa&nbsp;spacją"
+        label="Wyszukaj usługi oddzielając słowa&nbsp;spacją"
         placeholder="Np. meble / projekt"
         value={searchValue}
         onChange={onChangeHandler}
         totalItems={totalServices}
         requestTime={requestTime}
+        page={currentPage}
+        allPages={Math.ceil(totalServices / perPage)}
+        optionsValue={optionsValue}
+        onOptionsChange={onOptionsChangeHandler}
       />
       <div className="services">{serviceList}</div>
       {services.length > 0 && (
