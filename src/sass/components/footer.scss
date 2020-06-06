@@ -60,6 +60,10 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
+
+      &>a:not(:last-child) {
+        margin-right: 1rem;
+      }
     }
   }
 

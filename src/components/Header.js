@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 import NavigationItems from './Navigation/NavigationItems';
 import DrawerToggle from './Navigation/DrawerToggle';
+import Logo from './Logo';
 
 const Header = (props) => {
   const headerClasses = ['header'];
@@ -14,9 +14,7 @@ const Header = (props) => {
   }
   return (
     <header className={headerClasses.join(' ')} ref={props.headerRef}>
-      <NavLink className="header__logo" to="/" exact={true}>
-        SWPIU
-      </NavLink>
+      <Logo />
       <DrawerToggle
         clicked={props.sideDrawerToggle}
         sideDrawerIsVisible={props.sideDrawerIsVisible}

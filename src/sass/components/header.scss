@@ -36,11 +36,14 @@
     }
 
     &__logo {
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        color: $color-white;
-        text-decoration: none;
-        font-size: 3rem;
-        letter-spacing: 5px;
+        display: flex;
+        align-items: center;
+        height: 92%;
+
+        &-image {
+            height: 100%;
+            width: auto;
+        }
     }
 
     &--transparent {

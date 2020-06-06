@@ -34,62 +34,33 @@ const Footer = (props) => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="http://samuelk.pl/"
+              href="https://mera.eu/"
             >
-              mera&nbsp;
+              mera
             </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="http://samuelk.pl/"
+              href="https://www.ikea.com/pl/pl/"
             >
-              ikea&nbsp;
+              ikea
             </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="http://samuelk.pl/"
+              href="http://www.fizia.pl/"
             >
-              fizia&nbsp;
+              fizia
             </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="http://samuelk.pl/"
+              href="http://projektw.pl/"
             >
-              eza&nbsp;
+              Projekt&nbsp;W
             </a>
           </div>
-          <div className="footer__top-group">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="http://samuelk.pl/"
-            >
-              mera&nbsp;
-            </a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="http://samuelk.pl/"
-            >
-              ikea&nbsp;
-            </a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="http://samuelk.pl/"
-            >
-              fizia&nbsp;
-            </a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="http://samuelk.pl/"
-            >
-              eza&nbsp;
-            </a>
-          </div>
+          <div className="footer__top-group"></div>
         </div>
       </div>
       <div className="footer__copyright">

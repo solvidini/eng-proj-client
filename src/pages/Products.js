@@ -12,7 +12,7 @@ const Products = (props) => {
   const [totalProducts, setTotalProducts] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(5);
-  const [optionsValue, setOptionsValue] = useState(5);
+  const [optionsValue, setOptionsValue] = useState('');
   const [requestTime, setRequestTime] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
