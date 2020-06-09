@@ -35,21 +35,6 @@
         }
     }
 
-    &__logo {
-        display: flex;
-        align-items: center;
-        height: 92%;
-
-        &-image {
-            height: 100%;
-            width: auto;
-        }
-
-        &--hide {
-            display: none;
-        }
-    }
-
     &--transparent {
         @include respond(phone) {
             background-color: transparent;

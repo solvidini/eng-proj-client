@@ -67,7 +67,7 @@ const Layout = (props) => {
         opened={sideDrawerIsVisible}
         onClose={sideDrawerClosedHandler}
       />
-      <div style={minHeight}>{props.children}</div>
+      <div className="content" style={minHeight}>{props.children}</div>
       <Footer footerRef={footerRef} />
     </>
   );

@@ -36,22 +36,25 @@ const Footer = (props) => {
               rel="noopener noreferrer"
               href="https://mera.eu/"
             >
-              mera
+              Mera
             </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://www.ikea.com/pl/pl/"
             >
-              ikea
+              IKEA
             </a>
+
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="http://www.fizia.pl/"
+              href="https://homeconcept.com.pl/katowice/"
             >
-              fizia
+              Home&nbsp;Concept
             </a>
+          </div>
+          <div className="footer__top-group">
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -59,8 +62,21 @@ const Footer = (props) => {
             >
               Projekt&nbsp;W
             </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="http://www.fizia.pl/"
+            >
+              Fizia
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.elmax.tychy.pl/"
+            >
+              Elmax
+            </a>
           </div>
-          <div className="footer__top-group"></div>
         </div>
       </div>
       <div className="footer__copyright">

@@ -3,5 +3,40 @@
 
 .section-home {
     max-width: 120rem;
-    margin: 12rem auto 0;
+    margin: 4rem auto;
+}
+
+.home-logo {
+    height: 28rem;
+
+    @include respond(phone) {
+        height: 18rem;
+    }
+}
+
+.home {
+    color: $color-white;
+    font-size: 1.7rem;
+    margin: 0 1rem;
+
+    &__article-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    &__article-highlight {
+        color: $color-primary;
+        font-weight: 600;
+    }
+
+    & p {
+        text-align: justify;
+    }
+
+    &__about {
+        margin-bottom: 2rem;
+    }
+    &__user-manual {
+        margin-bottom: 2rem;
+    }
 }

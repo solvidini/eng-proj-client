@@ -42,7 +42,12 @@ const Services = (props) => {
         })
         .then((data) => {
           const modifiedServices = data.services.map((service) => {
-            service.path = 'http://localhost:8101/' + service.path;
+            if (service.path) {
+              // service.path = 'http://localhost:8101/' + service.path;
+              service.path =
+                'http://swpiu-collector.samuelk.pl:8101/' +
+                service.path;
+            }
             return service;
           });
           setRequestTime(new Date().getTime() - startTime);
@@ -87,7 +92,10 @@ const Services = (props) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ expression: searchValue, perPage: perPage }),
+      body: JSON.stringify({
+        expression: searchValue,
+        perPage: perPage,
+      }),
     })
       .then((response) => {
         if (response.status !== 200) {
@@ -97,7 +105,11 @@ const Services = (props) => {
       })
       .then((data) => {
         const modifiedServices = data.services.map((service) => {
-          service.path = 'http://localhost:8101/' + service.path;
+          if (service.path) {
+            // service.path = 'http://localhost:8101/' + service.path;
+            service.path =
+              'http://swpiu-collector.samuelk.pl:8101/' + service.path;
+          }
           return service;
         });
         setTotalServices(data.totalItems);

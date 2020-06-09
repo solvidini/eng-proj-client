@@ -42,7 +42,12 @@ const Products = (props) => {
         })
         .then((data) => {
           const modifiedProducts = data.products.map((product) => {
-            product.path = 'http://localhost:8101/' + product.path;
+            if (product.path) {
+              // product.path = 'http://localhost:8101/' + product.path;
+              product.path =
+                'http://swpiu-collector.samuelk.pl:8101/' +
+                product.path;
+            }
             return product;
           });
           setRequestTime(new Date().getTime() - startTime);
@@ -100,7 +105,11 @@ const Products = (props) => {
       })
       .then((data) => {
         const modifiedProducts = data.products.map((product) => {
-          product.path = 'http://localhost:8101/' + product.path;
+          if (product.path) {
+            // product.path = 'http://localhost:8101/' + product.path;
+            product.path =
+              'http://swpiu-collector.samuelk.pl:8101/' + product.path;
+          }
           return product;
         });
         setTotalProducts(data.totalItems);
@@ -172,7 +181,7 @@ const Products = (props) => {
       <Input
         id="products"
         label="Wyszukaj produkty oddzielając słowa&nbsp;spacją."
-        placeholder="Np. mera lampa desk / ikea biurko / krzesło*"
+        placeholder="Np. lampa wisząca / biurko / krzesło*"
         value={searchValue}
         onChange={onChangeHandler}
         totalItems={totalProducts}

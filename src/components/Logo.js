@@ -4,16 +4,22 @@ import { NavLink } from 'react-router-dom';
 import swpiuLogo from '../assets/images/swpiu-logo.png';
 
 const Logo = (props) => {
-  const logoClasses = ['header__logo'];
+  const logoClasses = ['logo'];
   if (props.hide) {
-    logoClasses.push('header__logo--hide');
+    logoClasses.push('logo--hide');
   }
   return (
-    <NavLink className={logoClasses.join(' ')} to="/" exact={true}>
+    <NavLink
+      className={logoClasses.join(' ')}
+      to="/"
+      exact={true}
+      style={props.containerStyle}
+    >
       <img
-        className="header__logo-image"
+        className="logo__image"
         src={swpiuLogo}
         alt="SWPIU Logo"
+        style={props.imageStyle}
       />
     </NavLink>
   );

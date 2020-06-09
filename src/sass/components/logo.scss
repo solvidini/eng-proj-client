@@ -1,0 +1,16 @@
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 92%;
+
+    &__image {
+        height: 100%;
+        width: auto;
+        max-width: 100%;
+    }
+
+    &--hide {
+        display: none;
+    }
+}
