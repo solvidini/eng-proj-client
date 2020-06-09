@@ -36,6 +36,8 @@ Główne technologie użyte przy tworzeniu systemu:
 
 - Node.js
 - MongoDB
+- Puppeteer
+- Cheerio
 
 &other
 
