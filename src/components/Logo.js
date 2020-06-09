@@ -8,6 +8,12 @@ const Logo = (props) => {
   if (props.hide) {
     logoClasses.push('logo--hide');
   }
+  if (props.header) {
+    logoClasses.push('logo--header');
+  }
+  if (props.alteration) {
+    logoClasses.push('logo--alteration');
+  }
   return (
     <NavLink
       className={logoClasses.join(' ')}

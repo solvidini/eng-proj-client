@@ -14,7 +14,7 @@ const Header = (props) => {
   }
   return (
     <header className={headerClasses.join(' ')} ref={props.headerRef}>
-      <Logo hide={props.sideDrawerIsVisible} />
+      <Logo hide={props.sideDrawerIsVisible} header alteration={props.alteration} />
       <DrawerToggle
         clicked={props.sideDrawerToggle}
         sideDrawerIsVisible={props.sideDrawerIsVisible}

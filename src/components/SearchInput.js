@@ -20,7 +20,7 @@ const SearchInput = (props) => (
       />
       <FontAwesomeIcon icon="search" className="inputs__search-icon" />
       <input
-        className="inputs__options"
+        className="inputs__pagination"
         type="number"
         title="Liczba elementów na jedną stronę"
         placeholder="1 - 30"

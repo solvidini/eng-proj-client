@@ -45,12 +45,16 @@
         background-color: $color-white;
 
         font-size: 1.6rem;
-        // text-align: center;
 
         border: 2px solid $color-white;
+        border-right: 1px solid $color-accent;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
         border-top-left-radius: 2rem;
         border-bottom-left-radius: 2rem;
-        border-right: 1px solid $color-accent;
 
         @include respond(tab-port) {
             width: 80%;
@@ -85,7 +89,7 @@
         }
     }
 
-    &__options {
+    &__pagination {
         width: 15%;
         flex: 0 0 15%;
         outline: none;
@@ -96,9 +100,14 @@
         font-size: 1.6rem;
 
         border: 2px solid $color-white;
+        border-left: 1px solid $color-accent;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
         border-top-right-radius: 2rem;
         border-bottom-right-radius: 2rem;
-        border-left: 1px solid $color-accent;
 
         @include respond(tab-port) {
             width: 20%;
