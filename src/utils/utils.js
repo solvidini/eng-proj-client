@@ -12,6 +12,9 @@ export const writeCorrectly = (id, totalItems) => {
       case '2':
       case '3':
       case '4':
+        if (totalItems > 10 && totalItems < 20) {
+          return 'usług';
+        }
         return 'usługi';
       default:
         return 'usług';
@@ -26,6 +29,9 @@ export const writeCorrectly = (id, totalItems) => {
       case '2':
       case '3':
       case '4':
+        if (totalItems > 10 && totalItems < 20) {
+          return 'produktów';
+        }
         return 'produkty';
       default:
         return 'produktów';
