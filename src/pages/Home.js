@@ -2,16 +2,14 @@ import React from 'react';
 
 import Logo from '../components/Logo';
 
-import userManual1 from '../assets/images/user-manual1.png';
-
 const Home = (props) => {
   return (
     <section className="section-home">
       <div className="home-logo">
         <Logo />
       </div>
-      <div className="home">
-        <article className="home__about">
+      <ol className="home">
+        <li className="home__item">
           <h1 className="home__article-title">Krótko o systemie</h1>
           <p>
             <span className="home__article-highlight">
@@ -28,22 +26,43 @@ const Home = (props) => {
             szukać i przęglądać każdej strony z interesujących nas firm
             osobno.
           </p>
-        </article>
-        <article className="home__user-manual">
+        </li>
+        <li className="home__item">
           <h1 className="home__article-title">Instrukcja obsługi</h1>
-          <p>
-            został stworzony na potrzeby pracy inżynierskiej. Jego
-            działanie polega na zbieraniu podstawowych informacji o
-            produktach i usługach, a następnie agregacji ich w jednej
-            bazie danych.
-          </p>
-          <img
-            src={userManual1}
-            className="home__image"
-            alt="Instrukcja Obsługi 1"
-          />
-        </article>
-      </div>
+          <ul>
+            <li>
+              Pole wyszukiwania - zaznaczone na{' '}
+              <span className="home__article-highlight">Rys. 1</span>{' '}
+              czerwoną prostokątną ramką - służy do wyszukiwania
+              obiektów znajdujących się w bazie. W polu wpisujemy
+              pojedyńcze słowa kluczowe oddzielając je spacją. Algorytmy
+              wyszukiwania będą dobierać odpowiednie obiekty zawierające
+              w sobie te słowa. Jeśli jednak chcemy wyszukać obiekty
+              zawierające dokładnie wpisywane słowo, wtedy na końcu tego
+              słowa dodajemy symbol gwiazdki "*".
+              <div className="home__image home__image--1"></div>
+              <div className="home__image-label">
+                <span className="home__article-highlight">Rys. 1.</span>{' '}
+                Pole wyszukiwania
+              </div>
+            </li>
+            <li>
+              Pole dynamicznej paginacji - zaznaczone na{' '}
+              <span className="home__article-highlight">Rys. 2</span>{' '}
+              czerwoną prostokątną ramką - służy do określenia ile
+              maksymalnie obiektów ma zostać wyświetlonych na stronie.
+              Domyślnie wyświetlanych jest 5 obiektów. Jeśli chcemy
+              zmienić tą wartość należy podać liczbę z przedziału od 1
+              do 30.
+              <div className="home__image home__image--2"></div>
+              <div className="home__image-label">
+                <span className="home__article-highlight">Rys. 2.</span>{' '}
+                Pole dynamicznej paginacji
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ol>
     </section>
   );
 };

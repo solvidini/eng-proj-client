@@ -5,6 +5,7 @@ import Spinner from '../components/UI/Spinner/Spinner';
 import Input from '../components/SearchInput';
 import Paginator from '../components/UI/Paginator';
 import ErrorHandler from '../components/ErrorHandler';
+import { apiUrl, imageUrl } from '../consts/urls';
 
 const Products = (props) => {
   const [products, setProducts] = useState([]);
@@ -24,7 +25,8 @@ const Products = (props) => {
       }
       setLoading(true);
       const startTime = new Date().getTime();
-      fetch('http://localhost:8100/products', {
+
+      fetch(apiUrl + 'products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,10 +45,7 @@ const Products = (props) => {
         .then((data) => {
           const modifiedProducts = data.products.map((product) => {
             if (product.path) {
-              // product.path = 'http://localhost:8101/' + product.path;
-              product.path =
-                'http://swpiu-collector.samuelk.pl:8101/' +
-                product.path;
+              product.path = imageUrl + product.path;
             }
             return product;
           });
@@ -87,7 +86,8 @@ const Products = (props) => {
       page = direction;
       setCurrentPage(page);
     }
-    fetch('http://localhost:8100/products?page=' + page, {
+
+    fetch(apiUrl + 'products?page=' + page, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -106,9 +106,7 @@ const Products = (props) => {
       .then((data) => {
         const modifiedProducts = data.products.map((product) => {
           if (product.path) {
-            // product.path = 'http://localhost:8101/' + product.path;
-            product.path =
-              'http://swpiu-collector.samuelk.pl:8101/' + product.path;
+            product.path = imageUrl + product.path;
           }
           return product;
         });

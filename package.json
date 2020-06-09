@@ -1,7 +1,7 @@
 {
   "name": "eng-proj-client",
-  "version": "1.0.0",
-  "description": "engineering project client interface",
+  "version": "1.0.1",
+  "description": "Engineering project client interface",
   "author": "Samuel Kedziora",
   "private": true,
   "dependencies": {

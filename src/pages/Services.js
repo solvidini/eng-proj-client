@@ -5,6 +5,7 @@ import Spinner from '../components/UI/Spinner/Spinner';
 import Input from '../components/SearchInput';
 import Paginator from '../components/UI/Paginator';
 import ErrorHandler from '../components/ErrorHandler';
+import { apiUrl, imageUrl } from '../consts/urls';
 
 const Services = (props) => {
   const [services, setServices] = useState([]);
@@ -24,7 +25,8 @@ const Services = (props) => {
       }
       setLoading(true);
       const startTime = new Date().getTime();
-      fetch('http://localhost:8100/services', {
+
+      fetch(apiUrl + 'services', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,10 +45,7 @@ const Services = (props) => {
         .then((data) => {
           const modifiedServices = data.services.map((service) => {
             if (service.path) {
-              // service.path = 'http://localhost:8101/' + service.path;
-              service.path =
-                'http://swpiu-collector.samuelk.pl:8101/' +
-                service.path;
+              service.path = imageUrl + service.path;
             }
             return service;
           });
@@ -87,7 +86,8 @@ const Services = (props) => {
       page = direction;
       setCurrentPage(page);
     }
-    fetch('http://localhost:8100/services?page=' + page, {
+
+    fetch(apiUrl + 'services?page=' + page, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -106,9 +106,7 @@ const Services = (props) => {
       .then((data) => {
         const modifiedServices = data.services.map((service) => {
           if (service.path) {
-            // service.path = 'http://localhost:8101/' + service.path;
-            service.path =
-              'http://swpiu-collector.samuelk.pl:8101/' + service.path;
+            service.path = imageUrl + service.path;
           }
           return service;
         });
@@ -180,7 +178,7 @@ const Services = (props) => {
       <Input
         id="services"
         label="Wyszukaj usługi oddzielając słowa&nbsp;spacją"
-        placeholder="Np. meble / projekt"
+        placeholder="Np. montaż / pomiar / projekt wnętrza"
         value={searchValue}
         onChange={onChangeHandler}
         totalItems={totalServices}
