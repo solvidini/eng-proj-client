@@ -23,7 +23,7 @@ const Home = (props) => {
             <span className="home__article-highlight">PRODUKTY</span>{' '}
             oraz <span className="home__article-highlight">USŁUGI</span>{' '}
             wyszukać interesujące go informacje. Dzięki temu nie trzeba
-            szukać i przęglądać każdej strony z interesujących nas firm
+            szukać i przeglądać każdej strony z interesujących nas firm
             osobno.
           </p>
         </li>
