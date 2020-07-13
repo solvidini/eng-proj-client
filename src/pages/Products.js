@@ -178,8 +178,8 @@ const Products = (props) => {
       <ErrorHandler error={error} onHandle={errorHandler} />
       <Input
         id="products"
-        label="Wyszukaj produkty oddzielając słowa&nbsp;spacją."
-        placeholder="Np. lampa wisząca / biurko / krzesło*"
+        label="Wyszukaj produkty oddzielając słowa&nbsp;przecinkiem."
+        placeholder="Np. lampa wisząca / biurko / krzesło"
         value={searchValue}
         onChange={onChangeHandler}
         totalItems={totalProducts}

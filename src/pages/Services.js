@@ -177,7 +177,7 @@ const Services = (props) => {
       <ErrorHandler error={error} onHandle={errorHandler} />
       <Input
         id="services"
-        label="Wyszukaj usługi oddzielając słowa&nbsp;spacją"
+        label="Wyszukaj usługi oddzielając słowa&nbsp;przecinkiem"
         placeholder="Np. montaż / pomiar / projekt wnętrza"
         value={searchValue}
         onChange={onChangeHandler}

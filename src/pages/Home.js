@@ -35,11 +35,11 @@ const Home = (props) => {
               <span className="home__article-highlight">Rys. 1</span>{' '}
               czerwoną prostokątną ramką - służy do wyszukiwania
               obiektów znajdujących się w bazie. W polu wpisujemy
-              pojedyńcze słowa kluczowe oddzielając je spacją. Algorytmy
+              słowa kluczowe oddzielając je przecinkiem. Algorytmy
               wyszukiwania będą dobierać odpowiednie obiekty zawierające
               w sobie te słowa. Jeśli jednak chcemy wyszukać obiekty
               zawierające dokładnie wpisywane słowo, wtedy na końcu tego
-              słowa dodajemy symbol gwiazdki "*".
+              słowa dodajemy symbol gwiazdki&nbsp;"*".
               <div className="home__image home__image--1"></div>
               <div className="home__image-label">
                 <span className="home__article-highlight">Rys. 1.</span>{' '}
@@ -53,7 +53,7 @@ const Home = (props) => {
               maksymalnie obiektów ma zostać wyświetlonych na stronie.
               Domyślnie wyświetlanych jest 5 obiektów. Jeśli chcemy
               zmienić tą wartość należy podać liczbę z przedziału od 1
-              do 30.
+              do&nbsp;30.
               <div className="home__image home__image--2"></div>
               <div className="home__image-label">
                 <span className="home__article-highlight">Rys. 2.</span>{' '}
