@@ -48,7 +48,7 @@ const Product = (props) => {
             rel="noopener noreferrer"
             href={props.reference}
           >
-            Link&nbsp;do&nbsp;producenta
+            Link&nbsp;do&nbsp;produktu
           </a>
         </div>
       </div>
