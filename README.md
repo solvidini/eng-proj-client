@@ -11,11 +11,12 @@ każdej strony z interesujących nas firm osobno.
 ## Działanie
 
 System dzieli się na 3 częsci. Obecna część to interfejs użytkownika
-odpowiedzialna za obsługę systemu. Poza nim są jeszcze 2 serwisy. Jeden
-to API odpowiedzialne za komunikację z interfejsem użytkownika. To do
-niego wysyłane są wszelkie żądania odpowiedzialne za pobór odpowiednich
-danych z bazy. Drugi to kolektor danych, który pozyskuje dane ze stron
-HTML i zapisuje je na serwerze oraz w bazie danych.
+odpowiedzialna za obsługę systemu. Poza nim są jeszcze 2 mikroserwisy.
+Jednym z nich jest API odpowiedzialne za komunikację z interfejsem
+użytkownika. To do niego wysyłane są wszelkie żądania odpowiedzialne za
+pobór odpowiednich danych z bazy. Drugi to kolektor danych, który
+pozyskuje dane ze stron HTML i zapisuje je na serwerze oraz w bazie
+danych.
 
 ## Technologie
 
