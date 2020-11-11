@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
-
-import usePrevious from '../hooks/usePrevious';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 import Product from '../components/Product';
 import Spinner from '../components/UI/Spinner/Spinner';
@@ -20,7 +18,7 @@ const Products = (props) => {
    const [requestTime, setRequestTime] = useState();
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState(false);
-   const prevSearchValue = usePrevious(searchValue);
+   const paramLoaded = useRef(props?.match?.params?.pageNumber);
 
    const fetchProducts = useCallback(
       (pageNumber = 1) => {
@@ -72,10 +70,11 @@ const Products = (props) => {
 
    useEffect(() => {
       const timeout = setTimeout(() => {
-         if (prevSearchValue !== searchValue && searchValue !== '') {
-            fetchProducts(1);
-         } else {
+         if (paramLoaded.current) {
+            paramLoaded.current = null;
             fetchProducts(currentPage);
+         } else {
+            fetchProducts(1);
          }
       }, 500);
       return () => {
