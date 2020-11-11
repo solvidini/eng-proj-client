@@ -5,7 +5,7 @@ import NavigationItem from './NavigationItem.js';
 const NavigationItems = (props) => {
   return (
     <ul className="navigation">
-      <NavigationItem link="/" clicked={props.clicked}>
+      <NavigationItem exact link="/" clicked={props.clicked}>
         Home
       </NavigationItem>
       <NavigationItem link="/products" clicked={props.clicked}>

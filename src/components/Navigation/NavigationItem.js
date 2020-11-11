@@ -7,7 +7,7 @@ const NavigationItem = (props) => {
       <NavLink
         className="navigation__item-link"
         to={props.link}
-        exact={true}
+        exact={props.exact || false}
         activeClassName="navigation__item-link--active"
         onClick={props.clicked}
       >
