@@ -34,11 +34,11 @@ const Home = (props) => {
               Pole wyszukiwania - zaznaczone na{' '}
               <span className="home__article-highlight">Rys. 1</span>{' '}
               czerwoną prostokątną ramką - służy do wyszukiwania
-              obiektów znajdujących się w bazie. W polu wpisujemy
-              słowa bądź wyrażenia kluczowe oddzielając je przecinkiem. Algorytmy
+              obiektów znajdujących się w bazie danych. W polu wpisujemy
+              słowa kluczowe oddzielając je spacją. Algorytmy
               wyszukiwania będą dobierać odpowiednie obiekty zawierające
-              w sobie te wyrazy. Jeśli jednak chcemy wyszukać obiekty
-              zawierające dokładnie wpisywane wyrażenie, wtedy na jego końcu dodajemy symbol gwiazdki&nbsp;"*".
+              w sobie te słowa. Jeśli jednak chcemy wyszukać obiekty
+              zawierające dokładnie wpisywane słowo, wtedy na jego końcu dodajemy symbol gwiazdki&nbsp;"*".
               <div className="home__image home__image--1"></div>
               <div className="home__image-label">
                 <span className="home__article-highlight">Rys. 1.</span>{' '}
