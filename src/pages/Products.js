@@ -86,7 +86,6 @@ const Products = (props) => {
       if (!direction || perPage < 1 || perPage > 30) {
          return;
       }
-      setLoading(true);
       let page = currentPage;
       if (direction === 'next') {
          page++;
