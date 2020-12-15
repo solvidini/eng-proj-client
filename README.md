@@ -10,9 +10,9 @@ każdej strony z interesujących nas firm osobno.
 
 ## Działanie
 
-> System dzieli się na 3 główne częsci. Obecna część to interfejs użytkownika odpowiedzialna za interakcję użytkownika z systemem. Poza samym interfejsem są również 2 mikroserwisy.
-> Jednym z nich jest API odpowiedzialne za komunikację z interfejsem użytkownika. To do niego wysyłane są wszelkie żądania odpowiedzialne za pobór odpowiednich danych z bazy. Ponadto został tu napisany autorski algorytm wyszukiwania danych oparty o wyrażenia regularne. Algorytm ten wyodrębnia podstawy słów kluczowych i na bazie ich logicznej kombinacji wyszukuje odpowiednie dane.
-> Drugi mikroserwis to kolektor danych, który pozyskuje informacje i zdjęcia z różnych stron internetowych i zapisuje je w plikach na serwerze oraz w zewnętrznej bazie danych. Ta część odpowiada również za progresywną aktualizację oraz usuwanie nieaktualnych danych.
+System dzieli się na 3 główne częsci. Obecna część to interfejs użytkownika odpowiedzialna za interakcję użytkownika z systemem. Poza samym interfejsem są również 2 mikroserwisy.
+Jednym z nich jest API odpowiedzialne za komunikację z interfejsem użytkownika. To do niego wysyłane są wszelkie żądania odpowiedzialne za pobór odpowiednich danych z bazy. Ponadto został tu napisany autorski algorytm wyszukiwania danych oparty o wyrażenia regularne. Algorytm ten wyodrębnia podstawy słów kluczowych i na bazie ich logicznej kombinacji wyszukuje odpowiednie dane.
+Drugi mikroserwis to kolektor danych, który pozyskuje informacje i zdjęcia z różnych stron internetowych i zapisuje je w plikach na serwerze oraz w zewnętrznej bazie danych. Ta część odpowiada również za progresywną aktualizację oraz usuwanie nieaktualnych danych.
 
 ## Technologie
 
