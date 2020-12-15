@@ -18,19 +18,19 @@ Drugi mikroserwis to kolektor danych, który pozyskuje informacje i zdjęcia z r
 
 Główne technologie użyte przy tworzeniu systemu:
 
-1. Front End
+### 1. Front End
 
 - React
 - Sass
 
-2. API
+### 2. API
 
 - Node.js
 - Express.js
 - Mongoose
 - Diacritic Regex
 
-3. Data Collector
+### 3. Data Collector
 
 - Node.js
 - Mongoose
@@ -39,7 +39,7 @@ Główne technologie użyte przy tworzeniu systemu:
 - Node Image Downloader
 - Node Schedule
 
-4. Database
+### 4. Database
 
 - MongoDB
 
