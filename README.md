@@ -10,13 +10,9 @@ każdej strony z interesujących nas firm osobno.
 
 ## Działanie
 
-System dzieli się na 3 częsci. Obecna część to interfejs użytkownika
-odpowiedzialna za obsługę systemu. Poza nim są jeszcze 2 mikroserwisy.
-Jednym z nich jest API odpowiedzialne za komunikację z interfejsem
-użytkownika. To do niego wysyłane są wszelkie żądania odpowiedzialne za
-pobór odpowiednich danych z bazy. Drugi to kolektor danych, który
-pozyskuje dane ze stron HTML i zapisuje je na serwerze oraz w bazie
-danych.
+System jest w pełni automatyczny. Dzieli się on na 3 częsci. Obecna część to interfejs użytkownika odpowiedzialna za interakcję użytkownika z systemem. Poza nim są jeszcze 2 mikroserwisy.
+Jednym z nich jest API odpowiedzialne za komunikację z interfejsem użytkownika. To do niego wysyłane są wszelkie żądania odpowiedzialne za pobór odpowiednich danych z bazy. Ponadto został tu napisany autorski algorytm wyszukiwania danych oparty o wyrażenia regularne. Algorytm ten wyodrębnia podstawy słów kluczowych i na bazie ich logicznej kombinacji wyszukuje odpowiednie dane.
+Drugi mikroserwis to kolektor danych, który pozyskuje informacje i zdjęcia z różnych stron internetowych i zapisuje je w plikach na serwerze oraz w zewnętrznej bazie danych. Ta część odpowiada również za progresywną aktualizację oraz usuwanie nieaktualnych danych.
 
 ## Technologie
 
@@ -31,16 +27,21 @@ Główne technologie użyte przy tworzeniu systemu:
 
 - Node.js
 - Express.js
-- MongoDB
+- Mongoose
+- Diacritic Regex
 
 3. Data Collector
 
 - Node.js
-- MongoDB
+- Mongoose
 - Puppeteer
 - Cheerio
+- Node Image Downloader
+- Node Schedule
 
-&other
+4. Database
+
+- MongoDB
 
 ## Live
 
