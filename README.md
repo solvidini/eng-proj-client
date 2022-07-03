@@ -1,6 +1,6 @@
 # System Wyszukiwania Produktów i Usług
 
-System Wyszukiwania Produktów i Usług został stworzony na potrzeby pracy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System Wyszukiwania Produktów i Usług został stworzony na potrzeby pracy
 inżynierskiej. Jego działanie polega na zbieraniu podstawowych
 informacji o produktach i usługach, a następnie agregacji ich w jednej
 bazie danych. Następnie użytkownik korzystający z systemu może za pomocą
@@ -10,37 +10,38 @@ każdej strony z interesujących nas firm osobno.
 
 ## Działanie
 
-System dzieli się na 3 częsci. Obecna część to interfejs użytkownika
-odpowiedzialna za obsługę systemu. Poza nim są jeszcze 2 mikroserwisy.
-Jednym z nich jest API odpowiedzialne za komunikację z interfejsem
-użytkownika. To do niego wysyłane są wszelkie żądania odpowiedzialne za
-pobór odpowiednich danych z bazy. Drugi to kolektor danych, który
-pozyskuje dane ze stron HTML i zapisuje je na serwerze oraz w bazie
-danych.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System dzieli się na 3 główne częsci. Obecna część to interfejs użytkownika odpowiedzialna za interakcję użytkownika z systemem. Poza samym interfejsem są również 2 mikroserwisy.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jednym z nich jest API odpowiedzialne za komunikację z interfejsem użytkownika. To do niego wysyłane są wszelkie żądania odpowiedzialne za pobór odpowiednich danych z bazy. Ponadto został tu napisany autorski algorytm wyszukiwania danych oparty o wyrażenia regularne. Algorytm ten wyodrębnia podstawy słów kluczowych i na bazie ich logicznej kombinacji wyszukuje odpowiednie dane.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Drugi mikroserwis to kolektor danych, który pozyskuje informacje i zdjęcia z różnych stron internetowych i zapisuje je w plikach na serwerze oraz w zewnętrznej bazie danych. Ta część odpowiada również za progresywną aktualizację oraz usuwanie nieaktualnych danych.
 
 ## Technologie
 
 Główne technologie użyte przy tworzeniu systemu:
 
-1. Front End
+### 1. Front End
 
 - React
 - Sass
 
-2. API
+### 2. API
 
 - Node.js
 - Express.js
-- MongoDB
+- Mongoose
+- Diacritic Regex
 
-3. Data Collector
+### 3. Data Collector
 
 - Node.js
-- MongoDB
+- Mongoose
 - Puppeteer
 - Cheerio
+- Node Image Downloader
+- Node Schedule
 
-&other
+### 4. Database
+
+- MongoDB
 
 ## Live
 
