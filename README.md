@@ -44,7 +44,7 @@ Główne technologie użyte przy tworzeniu systemu:
 
 ## Live
 
-http://swpiu.samuelk.pl/
+http://swpiu.front-up.pro/
 
 ## Author
 
